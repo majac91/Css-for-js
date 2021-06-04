@@ -19,7 +19,7 @@ h2 {
   margin-bottom: 16px;
   margin-top: 48px;
   display: flex;
-  overflow: hidden;
+  /* overflow: hidden; */
   /* align the h2 text and text decoration lower edge */
   align-items: last baseline;
 }
