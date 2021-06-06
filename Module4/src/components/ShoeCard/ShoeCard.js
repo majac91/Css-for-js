@@ -35,18 +35,25 @@ const ShoeCard = ({
   return (
     <Link href={`/shoe/${slug}`}>
       <Wrapper>
-        {variant === "new-release" && <Relese>Just released!</Relese>}
-        {variant === "on-sale" && <Sale>Sale</Sale>}
+        {variant === "new-release" && <ReleseTag>Just released!</ReleseTag>}
+        {variant === "on-sale" && <SaleTag>Sale</SaleTag>}
         <ImageWrapper>
           <Image alt="" src={imageSrc} />
         </ImageWrapper>
         <Spacer size={12} />
         <Row>
           <Name>{name}</Name>
-          <Price>{formatPrice(price)}</Price>
+          {variant === "on-sale" ? (
+            <PreSalePrice>{formatPrice(price)}</PreSalePrice>
+          ) : (
+            <Price>{formatPrice(price)}</Price>
+          )}
         </Row>
         <Row>
           <ColorInfo>{pluralize("Color", numOfColors)}</ColorInfo>
+          {variant === "on-sale" && (
+            <SalePrice>{formatPrice(salePrice)}</SalePrice>
+          )}
         </Row>
       </Wrapper>
     </Link>
@@ -80,6 +87,8 @@ const Image = styled.img`
 
 const Row = styled.div`
   font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
 `;
 
 const Name = styled.h3`
@@ -93,12 +102,17 @@ const ColorInfo = styled.p`
   color: ${COLORS.gray[700]};
 `;
 
+const PreSalePrice = styled.span`
+  text-decoration: line-through;
+  color: ${COLORS.gray[700]};
+`;
+
 const SalePrice = styled.span`
   font-weight: ${WEIGHTS.medium};
   color: ${COLORS.primary};
 `;
 
-const Sale = styled.span`
+const SaleTag = styled.span`
   background: red;
   position: absolute;
   z-index: 1;
@@ -106,12 +120,11 @@ const Sale = styled.span`
   top: 12px;
   padding: 7px 7px 9px 10px;
   background: #c5295d;
-
   color: white;
   border-radius: 2px;
 `;
 
-const Relese = styled.span`
+const ReleseTag = styled.span`
   background: blue;
   position: absolute;
   z-index: 1;
