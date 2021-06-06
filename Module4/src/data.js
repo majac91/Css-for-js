@@ -175,6 +175,16 @@ const SHOES = [
     releaseDate: Date.now() - 1000 * 60 * 60 * 24 * 120,
     numOfColors: 1,
   },
+  {
+    slug: "tech-challenge",
+    name: "NikeCourt Tech Challenge 20",
+    imageSrc: "/assets/tech-challenge.jpg",
+    price: 16500,
+    salePrice: null,
+    // 1 hour ago! 🔥
+    releaseDate: Date.now() - 1000 * 60 * 60 * 1,
+    numOfColors: 2,
+  },
 ];
 
 export default SHOES;

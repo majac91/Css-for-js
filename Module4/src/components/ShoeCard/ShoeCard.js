@@ -66,7 +66,7 @@ const Link = styled.a`
   margin-bottom: 62px;
   max-width: 30%;
   @media (min-width: 768px) and (max-width: 1024px) {
-    max-width: 45%;
+    max-width: 47%;
   }
   @media (min-width: 320px) and (max-width: 768px) {
     max-width: 100%;
@@ -112,28 +112,21 @@ const SalePrice = styled.span`
   color: ${COLORS.primary};
 `;
 
-const SaleTag = styled.span`
-  background: red;
+const Tag = styled.div`
   position: absolute;
   z-index: 1;
   right: -4px;
   top: 12px;
   padding: 7px 7px 9px 10px;
-  background: #c5295d;
   color: white;
   border-radius: 2px;
 `;
+const SaleTag = styled(Tag)`
+  background: #c5295d;
+`;
 
-const ReleseTag = styled.span`
-  background: blue;
-  position: absolute;
-  z-index: 1;
-  right: -5px;
-  top: 12px;
-  padding: 7px 7px 9px 11px;
+const ReleseTag = styled(Tag)`
   background: #6868d9;
-  color: white;
-  border-radius: 2px;
 `;
 
 export default ShoeCard;

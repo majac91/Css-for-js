@@ -64,10 +64,16 @@ const MainColumn = styled.div`
 const Header = styled.header`
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
 `;
 
 const Title = styled.h2`
-  font-size: 1.5rem;
+  ${"" /* font-size: 1.5rem; */}
+  font-size: clamp(
+    1.4rem,
+    4.9vw - 1rem,
+    1.8rem
+  );
   font-weight: ${WEIGHTS.medium};
   height: 42px;
 `;
